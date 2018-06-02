@@ -4,7 +4,7 @@ package com.booker.domain;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "books")
+@Table(name = "book")
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
