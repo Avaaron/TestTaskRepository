@@ -22,16 +22,6 @@ public class BookController {
     private int currentpage = 0;
     private String filter;
 
-
-    @GetMapping("/greeting")
-    public String greeting(@RequestParam(name="name", required=false, defaultValue="Андрей") String name, Map<String, Object> model) {
-        name = "vasiliy";
-        model.put("name", name);
-        return "greeting";
-    }
-
-
-
     @GetMapping
     public String main ( Map<String, Object> model){
         Page<Book> books = bookRepo.findAll(PageRequest.of(currentpage, 10, Sort.Direction.ASC, "title"));
