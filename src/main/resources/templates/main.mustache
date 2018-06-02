@@ -1,5 +1,123 @@
+<!DOCTYPE html>
 <html>
-    <body>
-        <div>{{some}}</div>
-    </body>
+<head>
+    <meta http-equiv="Content-Type" content="text/html"; charset="utf-8" />
+    <style type="text/css">
+        .tg {
+            border-collapse: collapse;
+            border-spacing: 0;
+            border-color: #ccc;
+        }
+
+        .tg td {
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            padding: 5px 5px;
+            border-style: solid;
+            border-width: 1px;
+            overflow: hidden;
+            word-break: normal;
+            border-color: #ccc;
+            color: #333;
+            background-color: #fff;
+        }
+
+        .tg th {
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            font-weight: normal;
+            padding: 5px 5px;
+            border-style: solid;
+            border-width: 1px;
+            overflow: hidden;
+            word-break: normal;
+            border-color: #ccc;
+            color: #333;
+            background-color: #f0f0f0;
+        }
+
+        .page{
+            margin: 0 auto;
+            overflow: auto;
+            padding: 0 auto;
+            width: 200px;
+        }
+
+        .page form{
+            float: left;
+            width: 80px;
+            display: block;
+            margin: 5px;
+        }
+
+        .tg .tg-4eph {
+            background-color: #f9f9f9
+        }
+    </style>
+</head>
+<body>
+<h3>Добавление издания</h3>
+<div>
+    <form name="addbook" method="post" action="add">
+        <input type="text" name="title" placeholder="Название книги" />
+        <input type="text" name="description" placeholder="Описание" />
+        <input type="text" name="author" placeholder="Автор" />
+        <input type="text" name="isbn" placeholder="ISBN" />
+        <input type="text" name="printYear" placeholder="Год написания" />
+        <input type="submit" name="add" value="Добавить" />
+    </form>
+</div>
+<h3>Поиск по названию</h3>
+<div>
+    <form method="post" action="filter">
+        <input type="text" value="" name="filter" placeholder="Название книги" />
+        <input type="submit" name="serch" value="Найти" />
+    </form>
+
+</div>
+
+<h3>Книжная база</h3>
+<table class="tg">
+    <tr>
+        <th width="80">id</th>
+        <th width="150">Название</th>
+        <th width="200">Описание</th>
+        <th width="120">Автор</th>
+        <th width="120">isbn</th>
+        <th width="80">Год выпуска</th>
+        <th width="60">Уже прочитана</th>
+        <th colspan="3">Действие</th>
+    </tr>
+
+{{#books}}
+
+        <tr>
+            <td>{{id}}</td>
+            <td>{{title}}</td>
+            <td>{{description}}</td>
+            <td>{{author}}</td>
+            <td>{{isbn}}</td>
+            <td>{{printYear}}</td>
+            <td>{{readAlready}}</td>
+            <td><a href="/delete/{{id}}">Удалить</a></td>
+            <td><a href="/update/{{id}}">Обновить</a></td>
+            <td><a href="/view/{{id}}">Прочитать</a></td>
+        </tr>
+{{/books}}
+    <tr>
+        <td colspan="10" text-align="center">
+            <div class="page">
+            <form   name="preview" method="post" action="page">
+                <input type="hidden" name="page" value="-1" />
+                <input type="submit" name="page" value="<<<назад">
+            </form>
+            <form name="preview" method="post" action="page">
+                <input type="hidden" name="page" value="1" />
+                <input type="submit" name="page" value="вперёд>>>">
+            </form>
+            </div>
+        </td>
+    </tr>
+</table>
+</body>
 </html>
