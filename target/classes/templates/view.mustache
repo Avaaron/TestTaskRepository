@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html"; charset="utf-8" />
+</head>
+<body>
+<h1>Информация о книге</h1>
+<table>
+    {{#book}}
+    <tr>
+        <td>№п/п</td>
+        <td>{{id}}</td>
+    </tr>
+    <tr>
+        <td>Название</td>
+        <td>{{title}}</td>
+    </tr>
+    <tr>
+        <td>Описание</td>
+        <td>{{description}}</td>
+    </tr>
+    <tr>
+        <td>Автор</td>
+        <td>{{author}}</td>
+    </tr>
+    <tr>
+        <td>ISBN</td>
+        <td>{{isbn}}</td>
+    </tr>
+    <tr>
+        <td>Год издания</td>
+        <td>{{printYear}}</td>
+    </tr>
+        {{/book}}
+</table>
+<br />
+<a href="/">Вернуться к списку</a>
+</body>
+</html>

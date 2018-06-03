@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html"; charset="utf-8" />
+</head>
+<body>
+<h2>Обновление даннных книги</h2>
+<div>
+    <form name="book" method="post">
+        {{#book}}
+            <input type="hidden" title="id" name="id" value="{{id}}" />
+            <input type="text" title="title" name="title" value="{{title}}" placeholder="Название книги" />
+            <input type="text" title="description" name="description" value="{{description}}" placeholder="Описание" />
+            <input type="text" title="author" name="author"  value="{{author}}" placeholder="Автор" />
+            <input type="text" title="isbn" name="isbn" value="{{isbn}}" placeholder="ISBN" />
+            <input type="text" title="printYear" name="printYear" value="{{printYear}}" placeholder="Год написания" />
+            <input type="hidden" title="readAlready" name="readAlready" value="{{readAlready}}" placeholder="уже прочитана" />
+            <input type="submit" name="edit" value="Редактировать" />
+        {{/book}}
+    </form>
+    <p>{{message}}</p>
+    <a href="/">Вернуться к списку</a>
+</div>
