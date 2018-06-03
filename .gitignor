@@ -1,3 +1,9 @@
+'#' Ignore objects and archives.
+
+*.[oa]
+
 .idea/
 
 .target/
+
+.out/
